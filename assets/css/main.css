@@ -17,22 +17,39 @@ body {
     font-family: 'Cormorant Garamond', serif;
 }
 
-.hero {
-    /* IMPORTANT: Updated image path */
-    background-image: url('../images/background/family-party.png');
-    background-size: cover;
-    background-position: center center;
-    position: relative;
+.header-logo {
+    /* Corrected to your specific dimensions */
+    width: 232px; /*232*/ /*197*/
+    height: 60px; /*60*/ /*51*/
 }
 
-.hero::before {
-    content: '';
-    position: absolute;
-    top: 0;
-    left: 0;
-    right: 0;
-    bottom: 0;
-    background-color: rgba(251, 248, 236, 0.6);
+
+/* This is the image panel on the right */
+.hero-image-panel {
+    background-image: url('../images/background/family-party.png');
+    background-size: cover;
+    background-repeat: no-repeat;
+    /* UPDATED: Aligns the image to the bottom for better framing */
+    background-position: center bottom;
+    min-height: 60vh;
+}
+
+/* This is the content panel on the left */
+.hero-content-panel {
+    background-color: #fbf8ec; /* The main background color */
+    /*min-height: 100vh;*/
+}
+
+@media (min-width: 768px) {
+    /* Corresponds to Tailwind's 'md' breakpoint */
+    .hero-image-panel,
+    .hero-content-panel {
+        min-height: 100vh;
+    }
+
+    .hero-section {
+        transform: translateX(-5%)
+    }
 }
 
 .countdown-item {
@@ -90,4 +107,3 @@ body {
 .avenir-font {
     font-family: "Avenir LT", "Avenir", "Helvetica Neue", Helvetica, Arial, sans-serif;
 }
-
