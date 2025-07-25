@@ -1,0 +1,24 @@
+body {
+    font-family: 'Fahkwang', sans-serif;
+    color: #333;
+    background-color: #fbf8ec;
+}
+
+h1, h2, h3, h4 {
+    font-family: 'Cormorant Garamond', serif;
+    font-weight: 600;
+    letter-spacing: 0.05em;
+}
+
+main {
+    background-color: #fff;
+}
+
+.menu-option.selected {
+    border-color: #6c584c;
+    box-shadow: 0 0 0 2px #6c584c;
+}
+
+.serif-font {
+    font-family: 'Cormorant Garamond', serif;
+}

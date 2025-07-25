@@ -3,67 +3,39 @@
 <head>
     <meta charset="UTF-8"/>
     <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-<!--    <meta http-equiv="Content-Security-Policy" content="-->
-<!--        default-src 'self';-->
-<!--        script-src 'self' https://cdn.tailwindcss.com;-->
-<!--        style-src 'self' 'unsafe-inline' https://fonts.googleapis.com;-->
-<!--        font-src 'self' https://fonts.gstatic.com;-->
-<!--        img-src 'self';-->
-<!--        form-action https://docs.google.com;-->
-<!--        frame-src 'self';-->
-<!--        object-src 'none';-->
-<!--        frame-ancestors 'none';-->
-<!--        base-uri 'self';-->
-<!--    ">-->
+    <meta http-equiv="Content-Security-Policy" content="
+        default-src 'self';
+        script-src 'self' https://cdn.tailwindcss.com;
+        style-src 'self' 'unsafe-inline' https://fonts.googleapis.com;
+        font-src 'self' https://fonts.gstatic.com;
+        img-src 'self';
+        form-action https://docs.google.com;
+        frame-src 'self' https://docs.google.com; /* <-- UPDATED: Allow Google Forms in the iframe */
+        object-src 'none';
+        frame-ancestors 'none';
+        base-uri 'self';
+    ">
     <title>RSVP - Thae & Ye's Engagement</title>
+
     <script src="https://cdn.tailwindcss.com"></script>
-<!--    <script src="https://cdn.tailwindcss.com" integrity="sha384-IQsoLXl5PILFhosVNubq5LC7Qb9DXgDA9i+tQ8Zj3iwWAwPtgFTxbJ8NT4GN1R8p" crossorigin="anonymous"></script>-->
-    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@300;400;500;600;700&family=Charm&family=Fahkwang&display=swap"
-          rel="stylesheet">
-    <style>
-        body {
-            font-family: 'Fahkwang', sans-serif;
-            color: #333;
-            background-color: #fbf8ec;
-        }
 
-        h1, h2, h3, h4 {
-            font-family: 'Cormorant Garamond', serif;
-            font-weight: 600;
-            letter-spacing: 0.05em;
-        }
-
-        main {
-            background-color: #fff;
-        }
-
-        .menu-option.selected {
-            border-color: #6c584c;
-            box-shadow: 0 0 0 2px #6c584c;
-        }
-
-        .serif-font {
-            font-family: 'Cormorant Garamond', serif;
-        }
-    </style>
+    <!-- External Stylesheets -->
+    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@300;400;500;600;700&family=Charm&family=Fahkwang&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="assets/css/rsvp.css">
 </head>
-<body class="py-12 px-4">
+<body class="py-12 px-4 bg-[#fbf8ec]">
 
 <iframe name="hidden_iframe" id="hidden_iframe" style="display:none;"
-        onload="if(submitted) showSuccessMessage();"></iframe>
-<!--<iframe name="hidden_iframe" id="hidden_iframe" style="display:none;"-->
-<!--        sandbox="allow-forms allow-scripts allow-same-origin"></iframe>-->
-
+        sandbox="allow-forms allow-same-origin"></iframe>
 
 <!-- RSVP Section -->
-<main id="rsvp" class="max-w-6xl mx-auto p-8 md:p-12 shadow-xl rounded-lg">
+<main id="rsvp" class="max-w-6xl mx-auto p-8 md:p-12 shadow-xl rounded-lg bg-white">
     <div id="form-container">
         <h2 class="text-3xl font-light mb-8 text-center text-[#6c584c]">We’d Love to Hear From You</h2>
         <form
                 action="https://docs.google.com/forms/d/e/1FAIpQLSdapc3xvMt-uy0A-ZdQmcYRyc9I7Q7LDweNgIiG0M5Qa5bP0w/formResponse"
                 method="POST"
                 target="hidden_iframe"
-                onsubmit="submitted=true; return validateRsvp();"
                 id="rsvp-form"
                 class="space-y-6"
         >
@@ -108,7 +80,6 @@
                         <div id="appetizer-selection-inputs"></div>
                         <div class="mt-2 grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 gap-4"
                              id="appetizer-options">
-                            <!-- Appetizer items are populated via JS -->
                         </div>
                     </div>
                     <br>
@@ -117,7 +88,6 @@
                         <div id="main-dish-selection-inputs"></div>
                         <div class="mt-2 grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 gap-4"
                              id="main-dish-options">
-                            <!-- Main dish items are populated via JS -->
                         </div>
                     </div>
                 </div>
@@ -132,7 +102,6 @@
                             <div id="guest-appetizer-selection-inputs"></div>
                             <div class="mt-2 grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 gap-4"
                                  id="guest-appetizer-options">
-                                <!-- Guest appetizer items are populated via JS -->
                             </div>
                         </div>
                         <br>
@@ -142,7 +111,6 @@
                             <div id="guest-main-dish-selection-inputs"></div>
                             <div class="mt-2 grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 gap-4"
                                  id="guest-main-dish-options">
-                                <!-- Guest main dish items are populated via JS -->
                             </div>
                         </div>
                     </div>
@@ -165,190 +133,7 @@
         Invitation</a>
 </footer>
 
-<script>
-    var submitted = false;
+<script src="assets/js/rsvp.js" defer></script>
 
-    // --- Data for Menu Items ---
-    const appetizerData = [
-        {value: "Balsamic Salad", img: "images/appetizer/balsamic-salad.png"},
-        {value: "Calamari Fries", img: "images/appetizer/calamari-fries.png"},
-        {value: "Crispy Salmon Toro", img: "images/appetizer/crispy-salmon-toro.png"},
-        {value: "Garlic Butter Grilled Prawns", img: "images/appetizer/garlic-butter-grilled-prawns.png"},
-        {value: "Mega Crispy Corn", img: "images/appetizer/mega-crispy-corn.png"},
-        {value: "Salmon Ikura Bite", img: "images/appetizer/salmon-ikura-bite.png"},
-        {value: "Snow Crab Katsu", img: "images/appetizer/snow-crab-katsu.png"},
-        {value: "Spicy Salmon", img: "images/appetizer/spicy-salmon.png"},
-        {value: "Sweet Potato Fries", img: "images/appetizer/sweet-potato-fries.png"},
-        {value: "Truffle Soup", img: "images/appetizer/truffle-soup.png"},
-    ];
-
-    const mainDishData = [
-        {value: "Aglio Olio Bacon Pasta", img: "images/main-dish/aglio-olio-bacon-pasta.png"},
-        {value: "Black Ocean Pasta", img: "images/main-dish/black-ocean-pasta.png"},
-        {value: "Chashu Don", img: "images/main-dish/chashu-don.png"},
-        {value: "Chicken Miso Butter", img: "images/main-dish/chicken-miso-butter.png"},
-        {value: "Creamy Carbonara Pasta", img: "images/main-dish/creamy-carbonara-pasta.png"},
-        {value: "Duck Confit Orange", img: "images/main-dish/duck-confit-orange.png"},
-        {value: "Le Saumon Lava Roll", img: "images/main-dish/le-saumon-lava-roll.png"},
-        {value: "Teriyaki Tori Don", img: "images/main-dish/teriyaki-tori-don.png"},
-        {value: "Truffle Ravioli", img: "images/main-dish/truffle-ravioli.png"},
-        {value: "Wagyu Garlic Fried Rice", img: "images/main-dish/wagyu-garlic-fried-rice.png"},
-    ];
-
-    // --- Functions ---
-    function showSuccessMessage() {
-        const formContainer = document.getElementById("form-container");
-        const attendance = document.getElementById('is-attending').value;
-
-        let messageHtml;
-        if (attendance === 'No') {
-            messageHtml = `
-                <div class="text-center py-16">
-                    <h2 class="text-3xl serif-font text-[#6c584c] mb-4">Thank you for your RSVP!</h2>
-                    <p class="text-gray-700 text-lg">We’ll miss you, but we’re so grateful for your warm wishes.</p>
-                </div>
-            `;
-        } else {
-            messageHtml = `
-                <div class="text-center py-16">
-                    <h2 class="text-3xl text-green-600 font-semibold mb-4">🎉 Thank You!</h2>
-                    <p class="text-gray-700 text-lg">Your RSVP has been submitted successfully.</p>
-                </div>
-            `;
-        }
-        formContainer.innerHTML = messageHtml;
-    }
-
-    function clearMenuSelection(inputsContainerId) {
-        const optionsContainer = document.getElementById(inputsContainerId.replace('-inputs', '-options'));
-        if (optionsContainer) {
-            optionsContainer.querySelectorAll('.menu-option.selected').forEach(opt => opt.classList.remove('selected'));
-        }
-        const inputsContainer = document.getElementById(inputsContainerId);
-        if (inputsContainer) {
-            inputsContainer.innerHTML = '';
-        }
-    }
-
-    function validateRsvp() {
-        const isAttending = document.getElementById('is-attending').value === 'Yes';
-        if (!isAttending) return true; // If not attending, always valid
-
-        // Validate main person's menu
-        const appetizerSelected = document.querySelectorAll('#appetizer-selection-inputs input').length > 0;
-        const mainDishSelected = document.querySelectorAll('#main-dish-selection-inputs input').length > 0;
-
-        if (!appetizerSelected || !mainDishSelected) {
-            alert("Please select an appetizer and a main dish for yourself.");
-            return false;
-        }
-
-        // Validate guest's menu if they are coming
-        const guestCount = document.getElementById('guest-count').value;
-        if (guestCount === '1') {
-            const guestAppetizerSelected = document.querySelectorAll('#guest-appetizer-selection-inputs input').length > 0;
-            const guestMainDishSelected = document.querySelectorAll('#guest-main-dish-selection-inputs input').length > 0;
-            if (!guestAppetizerSelected || !guestMainDishSelected) {
-                alert("Please select an appetizer and a main dish for your guest.");
-                return false;
-            }
-        }
-        return true;
-    }
-
-    function createMenuItem(item) {
-        return `
-            <div class="menu-option cursor-pointer border-2 border-gray-300 rounded-lg p-2 text-center transition-all hover:scale-105 hover:-translate-y-1 hover:shadow-xl" data-value="${item.value}">
-                <div class="relative rounded-md overflow-hidden">
-                    <img src="${item.img}" alt="${item.value}" class="w-full h-32 object-cover">
-                    <span class="absolute bottom-0 left-0 right-0 p-1 bg-black/50 text-white text-xs font-medium text-center">${item.value}</span>
-                </div>
-            </div>
-        `;
-    }
-
-    function populateMenu(containerId, data) {
-        const container = document.getElementById(containerId);
-        if (container) container.innerHTML = data.map(createMenuItem).join('');
-    }
-
-    function setupMenuSelection(optionsContainerId, inputsContainerId, entryId) {
-        const optionsContainer = document.getElementById(optionsContainerId);
-        const inputsContainer = document.getElementById(inputsContainerId);
-        if (!optionsContainer || !inputsContainer) return;
-
-        // Use event delegation for efficiency
-        optionsContainer.addEventListener('click', (e) => {
-            const clickedOption = e.target.closest('.menu-option');
-            if (!clickedOption) return;
-
-            const isSelected = clickedOption.classList.contains('selected');
-
-            // Deselect all other options in this group
-            optionsContainer.querySelectorAll('.menu-option').forEach(opt => opt.classList.remove('selected'));
-
-            // If it wasn't already selected, select it. This allows toggling off.
-            if (!isSelected) {
-                clickedOption.classList.add('selected');
-            }
-
-            // Regenerate the hidden input
-            inputsContainer.innerHTML = ''; // Clear previous
-            if (clickedOption.classList.contains('selected')) {
-                const newInput = document.createElement('input');
-                newInput.type = 'hidden';
-                newInput.name = entryId;
-                newInput.value = clickedOption.dataset.value;
-                inputsContainer.appendChild(newInput);
-            }
-        });
-    }
-
-    // --- Event Listeners and Initial Setup ---
-    document.addEventListener('DOMContentLoaded', () => {
-        const attendingSelect = document.getElementById('is-attending');
-        const guestCountSelect = document.getElementById('guest-count');
-        const attendingDetails = document.getElementById('attending-details');
-        const guestMenuDetails = document.getElementById('guest-menu-details');
-
-        // Populate all menus from data arrays
-        populateMenu('appetizer-options', appetizerData);
-        populateMenu('main-dish-options', mainDishData);
-        populateMenu('guest-appetizer-options', appetizerData);
-        populateMenu('guest-main-dish-options', mainDishData);
-
-        // Setup selection logic for all menus
-        setupMenuSelection('appetizer-options', 'appetizer-selection-inputs', 'entry.588393791');
-        setupMenuSelection('main-dish-options', 'main-dish-selection-inputs', 'entry.2109138769');
-
-        // IMPORTANT: Replace these placeholder IDs with the real ones from your Google Form
-        setupMenuSelection('guest-appetizer-options', 'guest-appetizer-selection-inputs', 'entry.898720481');
-        setupMenuSelection('guest-main-dish-options', 'guest-main-dish-selection-inputs', 'entry.421453520');
-
-        // Show/hide fields based on attendance
-        attendingSelect.addEventListener('change', (e) => {
-            if (e.target.value === 'Yes') {
-                attendingDetails.style.display = 'block';
-            } else {
-                attendingDetails.style.display = 'none';
-                // Also hide guest menu if they switch from Yes to No
-                guestMenuDetails.style.display = 'none';
-            }
-        });
-
-        // Show/hide guest menus based on guest count
-        guestCountSelect.addEventListener('change', (e) => {
-            if (e.target.value === '1') {
-                guestMenuDetails.style.display = 'block';
-            } else {
-                guestMenuDetails.style.display = 'none';
-                // Clear guest selections if they change from 1 to 0
-                clearMenuSelection('guest-appetizer-selection-inputs');
-                clearMenuSelection('guest-main-dish-selection-inputs');
-            }
-        });
-    });
-</script>
-<!--<script src="rsvp.js" defer></script>-->
 </body>
 </html>

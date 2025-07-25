@@ -1,0 +1,93 @@
+/* assets/css/main.css */
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    font-family: 'fahkwang', sans-serif;
+    background-color: #fbf8ec;
+    color: #333;
+}
+
+.script-font {
+    font-family: 'Charm', serif;
+}
+
+.serif-font {
+    font-family: 'Cormorant Garamond', serif;
+}
+
+.hero {
+    /* IMPORTANT: Updated image path */
+    background-image: url('../images/background/family-party.png');
+    background-size: cover;
+    background-position: center center;
+    position: relative;
+}
+
+.hero::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: rgba(251, 248, 236, 0.6);
+}
+
+.countdown-item {
+    position: relative;
+}
+
+.countdown-item:not(:last-child)::after {
+    content: '';
+    position: absolute;
+    right: -10px;
+    top: 50%;
+    transform: translateY(-50%);
+    height: 40px;
+    width: 1px;
+    background-color: rgba(108, 88, 76, 0.3);
+}
+
+.floral-divider {
+    position: relative;
+    height: 30px;
+    margin: 20px 0;
+}
+
+.floral-divider::before {
+    content: '❦';
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+    font-size: 24px;
+    color: #6c584c;
+}
+
+.floral-divider::after {
+    content: '';
+    position: absolute;
+    top: 50%;
+    left: 0;
+    right: 0;
+    height: 1px;
+    background-color: rgba(108, 88, 76, 0.3);
+    z-index: -1;
+}
+
+.rsvp-button {
+    transition: all 0.3s ease;
+}
+
+.rsvp-button:hover {
+    background-color: #c4a77d;
+    transform: translateY(-2px);
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+.avenir-font {
+    font-family: "Avenir LT", "Avenir", "Helvetica Neue", Helvetica, Arial, sans-serif;
+}
+
