@@ -34,7 +34,7 @@ body {
 /* This is the image panel on the right */
 .hero-image-panel {
     background-image: url('../images/background/family-party.png');
-    background-size: cover;
+    background-size: contain;
     background-repeat: no-repeat;
     background-position: center bottom;
     min-height: 60vh;
@@ -48,7 +48,11 @@ body {
 
 @media (min-width: 768px) {
     /* Corresponds to Tailwind's 'md' breakpoint */
-    .hero-image-panel,
+    .hero-image-panel {
+        background-size: cover;
+        min-height: 100vh;
+    }
+
     .hero-content-panel {
         min-height: 100vh;
     }

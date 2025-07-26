@@ -40,9 +40,7 @@
     <div class="overflow-x-hidden">
         <section class="hero-section grid grid-cols-1 md:grid-cols-2">
             <!-- Left Content Panel -->
-            <div class="hero-content-panel flex flex-col justify-center text-center pt-8 pb-20 md:py-16 lg:py-24">
-
-                <!-- Decorative Headings -->
+            <div class="hero-content-panel flex flex-col justify-center text-center pt-8 pb-20 md:py-16 lg:py-24 px-4">
 
                 <!-- Informational Block with consistent vertical spacing -->
                 <div class="space-y-6 md:-translate-y-12">
@@ -75,67 +73,64 @@
             </div>
 
             <!-- Right Image Panel -->
-            <div class="hero-image-panel -mt-16 md:mt-0 aspect-square md:aspect-auto">
-            </div>
-        </section>
-
-        <!-- Event Details Section (no changes) -->
-        <section class="min-h-screen flex items-center justify-center py-20 bg-[#f8f4ef]">
-            <div class="container mx-auto px-4 text-center">
-                <h2 class="script-font text-4xl md:text-5xl text-[#6c584c] mb-12 text-center">Event Details</h2>
-                <div class="max-w-5xl mx-auto grid grid-cols-1 md:grid-cols-2 gap-12 items-stretch">
-                    <!-- Details Card -->
-                    <div class="bg-white p-8 rounded-lg shadow-lg text-left flex flex-col justify-center">
-                        <div class="flex items-start mb-6">
-                            <svg class="w-8 h-8 text-[#6c584c] mr-4 mt-1 flex-shrink-0" fill="none"
-                                 stroke="currentColor"
-                                 viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
-                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-                                      d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z"></path>
-                            </svg>
-                            <div>
-                                <h3 class="serif-font text-2xl text-[#6c584c] mb-2">Date & Time</h3>
-                                <p class="text-gray-600">Friday, August 22, 2025</p>
-                                <p class="text-gray-600">11:00 AM - 3:00 PM</p>
-                            </div>
-                        </div>
-
-                        <div class="border-t border-stone-200 my-8"></div>
-
-                        <div class="flex items-start">
-                            <svg class="w-8 h-8 text-[#6c584c] mr-4 mt-1 flex-shrink-0" fill="none"
-                                 stroke="currentColor"
-                                 viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
-                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-                                      d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z"></path>
-                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-                                      d="M15 11a3 3 0 11-6 0 3 3 0 016 0z"></path>
-                            </svg>
-                            <div>
-                                <h3 class="serif-font text-2xl text-[#6c584c] mb-2">Venue</h3>
-                                <p class="text-gray-700 font-semibold">Préf Café & Bar</p>
-                                <p class="text-gray-600">House, 1 Soi Sathon 11, Khwaeng Yan Nawa, Sathon, Bangkok
-                                    10120</p>
-                            </div>
-                        </div>
-                    </div>
-
-                    <!-- Map -->
-                    <div class="rounded-lg shadow-lg overflow-hidden h-96">
-                        <iframe
-                                src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3875.9920237181377!2d100.52435477533137!3d13.718932598053156!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x30e299d16e781d61%3A0x7ede8f0186abbc04!2zUHLDqWYgQ2Fmw6kgJiBCYXI!5e0!3m2!1sen!2sth!4v1752855936981!5m2!1sen!2sth"
-                                class="w-full h-full"
-                                style="border:0;"
-                                allowfullscreen=""
-                                loading="lazy"
-                                referrerpolicy="no-referrer-when-downgrade"
-                                sandbox="allow-scripts allow-same-origin allow-popups">
-                        </iframe>
-                    </div>
-                </div>
+            <div class="hero-image-panel -mt-16 md:mt-0 md:aspect-auto md:px-0">
             </div>
         </section>
     </div>
+
+    <!-- Event Details Section (no changes) -->
+    <section class="min-h-screen flex items-center justify-center py-20 bg-[#f8f4ef]">
+        <div class="container mx-auto px-4 text-center">
+            <h2 class="script-font text-4xl md:text-5xl text-[#6c584c] mb-12 text-center">Event Details</h2>
+            <div class="max-w-5xl mx-auto grid grid-cols-1 md:grid-cols-2 gap-12 items-stretch">
+                <!-- Details Card -->
+                <div class="bg-white p-8 rounded-lg shadow-lg text-left flex flex-col justify-center">
+                    <div class="flex items-start mb-6">
+                        <svg class="w-8 h-8 text-[#6c584c] mr-4 mt-1 flex-shrink-0" fill="none" stroke="currentColor"
+                             viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                  d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z"></path>
+                        </svg>
+                        <div>
+                            <h3 class="serif-font text-2xl text-[#6c584c] mb-2">Date & Time</h3>
+                            <p class="text-gray-600">Friday, August 22, 2025</p>
+                            <p class="text-gray-600">11:00 AM - 3:00 PM</p>
+                        </div>
+                    </div>
+
+                    <div class="border-t border-stone-200 my-8"></div>
+
+                    <div class="flex items-start">
+                        <svg class="w-8 h-8 text-[#6c584c] mr-4 mt-1 flex-shrink-0" fill="none" stroke="currentColor"
+                             viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                  d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z"></path>
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                  d="M15 11a3 3 0 11-6 0 3 3 0 016 0z"></path>
+                        </svg>
+                        <div>
+                            <h3 class="serif-font text-2xl text-[#6c584c] mb-2">Venue</h3>
+                            <p class="text-gray-700 font-semibold">Préf Café & Bar</p>
+                            <p class="text-gray-600">House, 1 Soi Sathon 11, Khwaeng Yan Nawa, Sathon, Bangkok 10120</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Map -->
+                <div class="rounded-lg shadow-lg overflow-hidden h-96">
+                    <iframe
+                            src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3875.9920237181377!2d100.52435477533137!3d13.718932598053156!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x30e299d16e781d61%3A0x7ede8f0186abbc04!2zUHLDqWYgQ2Fmw6kgJiBCYXI!5e0!3m2!1sen!2sth!4v1752855936981!5m2!1sen!2sth"
+                            class="w-full h-full"
+                            style="border:0;"
+                            allowfullscreen=""
+                            loading="lazy"
+                            referrerpolicy="no-referrer-when-downgrade"
+                            sandbox="allow-scripts allow-same-origin allow-popups">
+                    </iframe>
+                </div>
+            </div>
+        </div>
+    </section>
 
     <!-- RSVP Call to Action Section (no changes) -->
     <section class="min-h-screen flex items-center justify-center pt-10 pb-20 bg-[#f8f4ef]">
