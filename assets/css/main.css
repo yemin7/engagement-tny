@@ -25,10 +25,10 @@ body {
     font-family: 'Cormorant Garamond', serif;
 }
 
-.header-logo {
-    width: 232px; /*232*/ /*197*/
-    height: 60px; /*60*/ /*51*/
-}
+/*.header-logo {*/
+/*    width: 232px; !*232*! !*197*!*/
+/*    height: 60px; !*60*! !*51*!*/
+/*}*/
 
 
 /* This is the image panel on the right */
