@@ -1,16 +1,24 @@
 /* assets/css/main.css */
+@font-face {
+    font-family: 'Magnolia Script';
+    src: url('../fonts/MagnoliaScript.otf') format('otf');
+    font-weight: normal;
+    font-style: normal;
+    font-display: swap;
+}
+
 html {
     scroll-behavior: smooth;
 }
 
 body {
-    font-family: 'fahkwang', sans-serif;
+    font-family: 'Cormorant Garamond', serif;
     background-color: #fbf8ec;
     color: #333;
 }
 
 .script-font {
-    font-family: 'Charm', serif;
+    font-family: 'Magnolia Script', cursive;
 }
 
 .serif-font {
@@ -18,7 +26,6 @@ body {
 }
 
 .header-logo {
-    /* Corrected to your specific dimensions */
     width: 232px; /*232*/ /*197*/
     height: 60px; /*60*/ /*51*/
 }
@@ -29,7 +36,6 @@ body {
     background-image: url('../images/background/family-party.png');
     background-size: cover;
     background-repeat: no-repeat;
-    /* UPDATED: Aligns the image to the bottom for better framing */
     background-position: center bottom;
     min-height: 60vh;
 }
@@ -105,5 +111,5 @@ body {
 }
 
 .avenir-font {
-    font-family: "Avenir LT", "Avenir", "Helvetica Neue", Helvetica, Arial, sans-serif;
+    font-family: 'Cormorant Garamond', serif;
 }

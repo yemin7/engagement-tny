@@ -18,7 +18,7 @@
     <script src="https://cdn.tailwindcss.com"></script>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@300;400;500;600;700&family=Great+Vibes&family=Montserrat:wght@100;200;300;400;500;600&display=swap"
+    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@300;400;500;600;700&family=Montserrat:wght@100;200;300;400;500;600&display=swap"
           rel="stylesheet">
 
     <link rel="stylesheet" href="assets/css/main.css">
@@ -36,39 +36,43 @@
 </header>
 
 <main>
-    <!--    <section class="grid grid-cols-1 md:grid-cols-2" style="transform: translateX(-5%);">-->
-    <!-- Hero Section: Asymmetric shift is now applied via CSS for desktop only -->
+    <!-- Hero Section -->
     <section class="hero-section grid grid-cols-1 md:grid-cols-2">
         <!-- Left Content Panel -->
-        <div class="hero-content-panel flex flex-col justify-center text-center py-8 md:py-16 lg:py-24">
-            <!--            <p class="text-5xl text-[#c4a77d] mb-6 serif-font">❦</p>-->
-            <p class="uppercase tracking-[0.2em] text-lg text-stone-500 mb-4">We are getting engaged</p>
-            <!--            <h1 class="script-font text-7xl md:text-8xl text-[#6c584c] mb-6">Thae & Ye</h1>-->
-            <p id="countdown-date-display" class="serif-font text-2xl text-[#6c584c] mb-10">August 22, 2025</p>
+        <div class="hero-content-panel flex flex-col justify-center text-center pt-8 pb-20 md:py-16 lg:py-24">
 
-            <!-- Countdown Section -->
-            <div class="flex justify-center flex-wrap" id="countdown">
-                <div class="countdown-item px-4 md:px-6 py-3">
-                    <div id="days" class="avenir-font text-3xl md:text-4xl font-light text-[#6c584c]">00</div>
-                    <div class="text-xs uppercase tracking-widest mt-1 text-stone-600">Days</div>
-                </div>
-                <div class="countdown-item px-4 md:px-6 py-3">
-                    <div id="hours" class="avenir-font text-3xl md:text-4xl font-light text-[#6c584c]">00</div>
-                    <div class="text-xs uppercase tracking-widest mt-1 text-stone-600">Hours</div>
-                </div>
-                <div class="countdown-item px-4 md:px-6 py-3">
-                    <div id="minutes" class="avenir-font text-3xl md:text-4xl font-light text-[#6c584c]">00</div>
-                    <div class="text-xs uppercase tracking-widest mt-1 text-stone-600">Minutes</div>
-                </div>
-                <div class="countdown-item px-4 md:px-6 py-3">
-                    <div id="seconds" class="avenir-font text-3xl md:text-4xl font-light text-[#6c584c]">00</div>
-                    <div class="text-xs uppercase tracking-widest mt-1 text-stone-600">Seconds</div>
+            <!-- Decorative Headings -->
+
+            <!-- Informational Block with consistent vertical spacing -->
+            <div class="space-y-6 md:-translate-y-12">
+                <p class="uppercase tracking-[0.2em] text-xl text-stone-500">We are getting engaged</p>
+                <p id="countdown-date-display" class="serif-font text-3xl text-[#6c584c]">August 22, 2025</p>
+
+
+                <!-- Countdown Section -->
+                <div class="flex justify-center flex-wrap" id="countdown">
+                    <div class="countdown-item px-4 md:px-6 py-3">
+                        <div id="days" class="avenir-font text-2xl md:text-3xl font-light text-[#6c584c]">00</div>
+                        <div class="text-xs uppercase tracking-widest mt-1 text-stone-600">Days</div>
+                    </div>
+                    <div class="countdown-item px-4 md:px-6 py-3">
+                        <div id="hours" class="avenir-font text-2xl md:text-3xl font-light text-[#6c584c]">00</div>
+                        <div class="text-xs uppercase tracking-widest mt-1 text-stone-600">Hours</div>
+                    </div>
+                    <div class="countdown-item px-4 md:px-6 py-3">
+                        <div id="minutes" class="avenir-font text-2xl md:text-3xl font-light text-[#6c584c]">00</div>
+                        <div class="text-xs uppercase tracking-widest mt-1 text-stone-600">Minutes</div>
+                    </div>
+                    <div class="countdown-item px-4 md:px-6 py-3">
+                        <div id="seconds" class="avenir-font text-2xl md:text-3xl font-light text-[#6c584c]">00</div>
+                        <div class="text-xs uppercase tracking-widest mt-1 text-stone-600">Seconds</div>
+                    </div>
                 </div>
             </div>
         </div>
 
         <!-- Right Image Panel -->
-        <div class="hero-image-panel">
+        <div class="hero-image-panel -mt-16 md:mt-0 aspect-square md:aspect-auto">
         </div>
     </section>
 
@@ -92,7 +96,7 @@
                         </div>
                     </div>
 
-                    <div class="floral-divider my-8"></div>
+                    <div class="border-t border-stone-200 my-8"></div>
 
                     <div class="flex items-start">
                         <svg class="w-8 h-8 text-[#6c584c] mr-4 mt-1 flex-shrink-0" fill="none" stroke="currentColor"
@@ -130,7 +134,7 @@
     <section class="min-h-screen flex items-center justify-center pt-10 pb-20 bg-[#f8f4ef]">
         <div class="container mx-auto px-4 text-center">
             <div class="max-w-2xl mx-auto">
-                <p class="serif-font text-[56px] leading-tight text-gray-700 mb-4">We can’t wait to share the joy with
+                <p class="serif-font text-[40px] leading-tight text-gray-700 mb-4">We can’t wait to share the joy with
                     you!</p>
                 <p class="text-xl text-gray-600 mb-6 leading-relaxed">
                     Love brought us together, and now we’d love to celebrate with you.
@@ -150,7 +154,7 @@
 <!-- Footer (no changes) -->
 <footer class="py-8 bg-white border-t border-gray-200">
     <div class="container mx-auto px-4 text-center">
-        <h2 class="script-font text-3xl text-[#6c584c] mb-4">Thae & Ye</h2>
+        <h2 class="script-font text-3xl text-[#6c584c] mb-4">Thank You</h2>
         <p class="text-gray-500 mb-6">#ThaeAndYeForever #ThaeAndYeEngaged #TYJourneyOfLove #ThaeAndYe2025</p>
         <p class="text-sm text-gray-400">&copy; 2025 Thae & Ye's Engagement</p>
     </div>
