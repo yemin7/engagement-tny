@@ -31,7 +31,7 @@ body {
 /* This is the image panel on the right */
 .hero-image-panel {
     background-image: url('../images/background/family-party.png');
-    background-size: contain;
+    background-size: cover;
     background-repeat: no-repeat;
     background-position: center bottom;
     min-height: 60vh;
