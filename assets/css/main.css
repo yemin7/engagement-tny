@@ -1,7 +1,10 @@
 /* assets/css/main.css */
 @font-face {
     font-family: 'Magnolia Script';
-    src: url('../fonts/MagnoliaScript.otf') format('otf');
+    /* Make sure the path and filename match what you have */
+    src: url('../fonts/MagnoliaScript.woff') format('woff');
+    src: url('../fonts/MagnoliaScript.woff2') format('woff2');
+    src: url('../fonts/MagnoliaScript.otf') format('opentype');
     font-weight: normal;
     font-style: normal;
     font-display: swap;
@@ -12,7 +15,7 @@ html {
 }
 
 body {
-    font-family: 'Cormorant Garamond', serif;
+    font-family: 'Nunito', sans-serif;
     background-color: #fbf8ec;
     color: #333;
 }
@@ -24,12 +27,6 @@ body {
 .serif-font {
     font-family: 'Cormorant Garamond', serif;
 }
-
-/*.header-logo {*/
-/*    width: 232px; !*232*! !*197*!*/
-/*    height: 60px; !*60*! !*51*!*/
-/*}*/
-
 
 /* This is the image panel on the right */
 .hero-image-panel {
@@ -50,11 +47,12 @@ body {
     /* Corresponds to Tailwind's 'md' breakpoint */
     .hero-image-panel {
         background-size: cover;
-        min-height: 100vh;
+        min-height: calc(100vh - 80px);
+        /*min-height: 100vh;*/
     }
-
     .hero-content-panel {
-        min-height: 100vh;
+        /*min-height: 100vh;*/
+        min-height: calc(100vh - 80px);
     }
 
     .hero-section {

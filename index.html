@@ -18,17 +18,17 @@
     <script src="https://cdn.tailwindcss.com"></script>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@300;400;500;600;700&family=Montserrat:wght@100;200;300;400;500;600&display=swap"
+    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@300;400;500;600;700&family=Montserrat:wght@100;200;300;400;500;600&family=Nunito:wght@400;700&display=swap"
           rel="stylesheet">
 
     <link rel="stylesheet" href="assets/css/main.css">
 </head>
 <body>
 <!-- Header -->
-<header class="bg-[#f5f1e9] shadow-sm">
+<header class="bg-[#f5f1e9]/95 shadow-sm w-full sticky top-0 z-50 backdrop-blur-sm">
     <div class="container mx-auto px-4 py-4 flex justify-between items-center">
         <a href="#">
-            <img src="assets/images/background/tny-logo.png" alt="Thae & Ye Logo" class="h-16 w-auto">
+            <img src="assets/images/background/tny-logo.png" alt="Thae & Ye Logo" class="h-12 w-auto">
         </a>
         <a href="rsvp.html"
            class="rsvp-button bg-[#6c584c] hover:bg-[#c4a77d] text-white px-6 py-2 rounded-full transition-all">RSVP</a>
@@ -44,7 +44,7 @@
 
                 <!-- Informational Block with consistent vertical spacing -->
                 <div class="space-y-6 md:-translate-y-12">
-                    <p class="uppercase tracking-[0.2em] text-xl text-stone-500">We are getting engaged</p>
+                    <p class="uppercase tracking-[0.2em] text-xl text-stone-500 font-bold">We are getting engaged</p>
                     <p id="countdown-date-display" class="serif-font text-3xl text-[#6c584c]">August 22, 2025</p>
 
 
@@ -78,7 +78,7 @@
         </section>
     </div>
 
-    <!-- Event Details Section (no changes) -->
+    <!-- Event Details Section -->
     <section class="min-h-screen flex items-center justify-center py-20 bg-[#f8f4ef]">
         <div class="container mx-auto px-4 text-center">
             <h2 class="script-font text-4xl md:text-5xl text-[#6c584c] mb-12 text-center">Event Details</h2>
@@ -92,13 +92,13 @@
                                   d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z"></path>
                         </svg>
                         <div>
-                            <h3 class="serif-font text-2xl text-[#6c584c] mb-2">Date & Time</h3>
-                            <p class="text-gray-600">Friday, August 22, 2025</p>
+                            <h3 class="text-2xl text-[#6c584c] mb-5">Date & Time</h3>
+                            <p class="text-gray-600 mb-2">Friday, August 22, 2025</p>
                             <p class="text-gray-600">11:00 AM - 3:00 PM</p>
                         </div>
                     </div>
 
-                    <div class="border-t border-stone-200 my-8"></div>
+                    <div class="border-t border-stone-200 my-5"></div>
 
                     <div class="flex items-start">
                         <svg class="w-8 h-8 text-[#6c584c] mr-4 mt-1 flex-shrink-0" fill="none" stroke="currentColor"
@@ -109,18 +109,18 @@
                                   d="M15 11a3 3 0 11-6 0 3 3 0 016 0z"></path>
                         </svg>
                         <div>
-                            <h3 class="serif-font text-2xl text-[#6c584c] mb-2">Venue</h3>
-                            <p class="text-gray-700 font-semibold">Préf Café & Bar</p>
+                            <h3 class="text-2xl text-[#6c584c] mb-5">Venue</h3>
+                            <p class="text-gray-700 font-semibold mb-2">Préf Café & Bar</p>
                             <p class="text-gray-600">House, 1 Soi Sathon 11, Khwaeng Yan Nawa, Sathon, Bangkok 10120</p>
                         </div>
                     </div>
                 </div>
 
                 <!-- Map -->
-                <div class="rounded-lg shadow-lg overflow-hidden h-96">
+                <div class="rounded-lg shadow-lg overflow-hidden">
                     <iframe
                             src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3875.9920237181377!2d100.52435477533137!3d13.718932598053156!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x30e299d16e781d61%3A0x7ede8f0186abbc04!2zUHLDqWYgQ2Fmw6kgJiBCYXI!5e0!3m2!1sen!2sth!4v1752855936981!5m2!1sen!2sth"
-                            class="w-full h-full"
+                            class="w-full h-96 md:h-full"
                             style="border:0;"
                             allowfullscreen=""
                             loading="lazy"
@@ -132,7 +132,7 @@
         </div>
     </section>
 
-    <!-- RSVP Call to Action Section (no changes) -->
+    <!-- RSVP Call to Action Section -->
     <section class="min-h-screen flex items-center justify-center pt-10 pb-20 bg-[#f8f4ef]">
         <div class="container mx-auto px-4 text-center">
             <div class="max-w-2xl mx-auto">
@@ -153,7 +153,7 @@
     </section>
 </main>
 
-<!-- Footer (no changes) -->
+<!-- Footer -->
 <footer class="py-8 bg-white border-t border-gray-200">
     <div class="container mx-auto px-4 text-center">
         <h2 class="script-font text-3xl text-[#6c584c] mb-4">Thank You</h2>
