@@ -16,7 +16,7 @@ html {
 
 body {
     font-family: 'Nunito', sans-serif;
-    background-color: #fbf8ec;
+    background-color: #f8f4ef;
     color: #333;
 }
 
@@ -39,7 +39,7 @@ body {
 
 /* This is the content panel on the left */
 .hero-content-panel {
-    background-color: #fbf8ec; /* The main background color */
+    background-color: #f8f4ef; /* The main background color */
     /*min-height: 100vh;*/
 }
 
@@ -50,6 +50,7 @@ body {
         min-height: calc(100vh - 80px);
         /*min-height: 100vh;*/
     }
+
     .hero-content-panel {
         /*min-height: 100vh;*/
         min-height: calc(100vh - 80px);
