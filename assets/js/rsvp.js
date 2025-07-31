@@ -28,6 +28,17 @@ document.addEventListener('DOMContentLoaded', () => {
         {value: "Wagyu Garlic Fried Rice", img: "assets/images/main-dish/wagyu-garlic-fried-rice.png"},
     ];
 
+    const beverageData = [
+        {value: "Caramel Crumble Frappe", img: "assets/images/beverages/caramel-crumble-frappe.png"},
+        {value: "Mango Yogurt Smoothie", img: "assets/images/beverages/mango-yogurt-smoothie.png"},
+        {value: "Mixberry Yogurt Sparkling", img: "assets/images/beverages/mixberry-yogurt-sparkling.png"},
+        {value: "Orange Espresso", img: "assets/images/beverages/orange-espresso.png"},
+        {value: "Peachy Cold Brew", img: "assets/images/beverages/peachy-cold-brew.png"},
+        {value: "Strawberry Matcha", img: "assets/images/beverages/strawberry-matcha.png"},
+        {value: "Strawberry Smoothie", img: "assets/images/beverages/strawberry-smoothie.png"},
+        {value: "Tropical Fruit Frappe", img: "assets/images/beverages/tropical-fruit-frappe.png"},
+    ];
+
     // --- DOM Element References ---
     const formContainer = document.getElementById("form-container");
     const rsvpForm = document.getElementById('rsvp-form');
@@ -78,9 +89,11 @@ document.addEventListener('DOMContentLoaded', () => {
 
         const appetizerSelected = document.querySelectorAll('#appetizer-selection-inputs input').length > 0;
         const mainDishSelected = document.querySelectorAll('#main-dish-selection-inputs input').length > 0;
+        const beverageSelected = document.querySelectorAll('#beverage-selection-inputs input').length > 0;
 
-        if (!appetizerSelected || !mainDishSelected) {
-            alert("Please select an appetizer and a main dish for yourself.");
+
+        if (!appetizerSelected || !mainDishSelected || !beverageSelected) {
+            alert("Please select an appetizer and a main dish, and a beverage for yourself.");
             return false;
         }
 
@@ -88,28 +101,32 @@ document.addEventListener('DOMContentLoaded', () => {
         if (guestCount === '1') {
             const guestAppetizerSelected = document.querySelectorAll('#guest-appetizer-selection-inputs input').length > 0;
             const guestMainDishSelected = document.querySelectorAll('#guest-main-dish-selection-inputs input').length > 0;
-            if (!guestAppetizerSelected || !guestMainDishSelected) {
-                alert("Please select an appetizer and a main dish for your guest.");
+            const guestBeverageSelected = document.querySelectorAll('#guest-beverage-selection-inputs input').length > 0;
+            if (!guestAppetizerSelected || !guestMainDishSelected || !guestBeverageSelected) {
+                alert("Please select an appetizer and a main dish, and a beverage for your guest.");
                 return false;
             }
         }
         return true;
     }
 
-    function createMenuItem(item) {
+    function createMenuItem(item, type = 'food') {
+        const imageClasses = type === 'beverage'
+            ? 'w-full h-32 object-contain'
+            : 'w-full h-32 object-cover';
         return `
             <div class="menu-option cursor-pointer border-2 border-gray-300 rounded-lg p-2 text-center transition-all hover:scale-105 hover:-translate-y-1 hover:shadow-xl" data-value="${item.value}">
                 <div class="relative rounded-md overflow-hidden">
-                    <img src="${item.img}" alt="${item.value}" class="w-full h-32 object-cover">
+                    <img src="${item.img}" alt="${item.value}" class="${imageClasses}">
                     <span class="absolute bottom-0 left-0 right-0 p-1 bg-black/50 text-white text-xs font-medium text-center">${item.value}</span>
                 </div>
             </div>
         `;
     }
 
-    function populateMenu(containerId, data) {
+    function populateMenu(containerId, data, type = 'food') {
         const container = document.getElementById(containerId);
-        if (container) container.innerHTML = data.map(createMenuItem).join('');
+        if (container) container.innerHTML = data.map(item => createMenuItem(item, type)).join('');
     }
 
     function setupMenuSelection(optionsContainerId, inputsContainerId, entryId) {
@@ -142,16 +159,20 @@ document.addEventListener('DOMContentLoaded', () => {
     // --- Event Listeners and Initial Setup ---
 
     // Populate all menus from data arrays
-    populateMenu('appetizer-options', appetizerData);
-    populateMenu('main-dish-options', mainDishData);
-    populateMenu('guest-appetizer-options', appetizerData);
-    populateMenu('guest-main-dish-options', mainDishData);
+    populateMenu('appetizer-options', appetizerData, 'food');
+    populateMenu('main-dish-options', mainDishData, 'food');
+    populateMenu('beverage-options', beverageData, 'beverage');
+    populateMenu('guest-appetizer-options', appetizerData, 'food');
+    populateMenu('guest-main-dish-options', mainDishData, 'food');
+    populateMenu('guest-beverage-options', beverageData, 'beverage');
 
     // Setup selection logic for all menus
     setupMenuSelection('appetizer-options', 'appetizer-selection-inputs', 'entry.588393791');
     setupMenuSelection('main-dish-options', 'main-dish-selection-inputs', 'entry.2109138769');
+    setupMenuSelection('beverage-options', 'beverage-selection-inputs', 'entry.261692406');
     setupMenuSelection('guest-appetizer-options', 'guest-appetizer-selection-inputs', 'entry.898720481');
     setupMenuSelection('guest-main-dish-options', 'guest-main-dish-selection-inputs', 'entry.421453520');
+    setupMenuSelection('guest-beverage-options', 'guest-beverage-selection-inputs', 'entry.1484470508');
 
     // Handle form submission
     if (rsvpForm) {
@@ -194,6 +215,7 @@ document.addEventListener('DOMContentLoaded', () => {
                 guestMenuDetails.style.display = 'none';
                 clearMenuSelection('guest-appetizer-selection-inputs');
                 clearMenuSelection('guest-main-dish-selection-inputs');
+                clearMenuSelection('guest-beverage-selection-inputs');
             }
         });
     }
