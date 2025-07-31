@@ -1,11 +1,25 @@
+@font-face {
+    font-family: 'Magnolia Script';
+    src: url('../fonts/MagnoliaScript.woff') format('woff');
+    src: url('../fonts/MagnoliaScript.woff2') format('woff2');
+    src: url('../fonts/MagnoliaScript.otf') format('opentype');
+    font-weight: normal;
+    font-style: normal;
+    font-display: swap;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
 body {
-    font-family: 'Fahkwang', sans-serif;
+    font-family: 'Nunito', sans-serif;
     color: #333;
     background-color: #fbf8ec;
 }
 
 h1, h2, h3, h4 {
-    font-family: 'Cormorant Garamond', serif;
+    font-family: 'Magnolia Script', serif;
     font-weight: 600;
     letter-spacing: 0.05em;
 }
@@ -21,4 +35,28 @@ main {
 
 .serif-font {
     font-family: 'Cormorant Garamond', serif;
+}
+
+textarea::placeholder,
+input::placeholder {
+    color: #a0aec0;
+    font-style: italic;
+    opacity: 1;
+}
+
+/* --- Collapsible Accordion Styles --- */
+.collapsible-content {
+    max-height: 0;
+    overflow: hidden;
+    transition: max-height 0.5s ease-out;
+    background-color: #fff;
+}
+
+.collapsible-header.active .collapsible-icon {
+    transform: rotate(180deg);
+}
+
+.collapsible-header.active {
+    border-bottom-left-radius: 0;
+    border-bottom-right-radius: 0;
 }

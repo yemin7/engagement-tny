@@ -37,21 +37,55 @@ document.addEventListener('DOMContentLoaded', () => {
         {value: "Strawberry Matcha", img: "assets/images/beverages/strawberry-matcha.png"},
         {value: "Strawberry Smoothie", img: "assets/images/beverages/strawberry-smoothie.png"},
         {value: "Tropical Fruit Frappe", img: "assets/images/beverages/tropical-fruit-frappe.png"},
+        {value: "Other Coffee/Tea", img: "assets/images/beverages/other-coffee-tea.png"},
     ];
 
     // --- DOM Element References ---
     const formContainer = document.getElementById("form-container");
     const rsvpForm = document.getElementById('rsvp-form');
+    const nameInput = document.getElementById('name'); // <-- ADDED
     const hiddenIframe = document.getElementById('hidden_iframe');
     const attendingSelect = document.getElementById('is-attending');
     const guestCountSelect = document.getElementById('guest-count');
     const attendingDetails = document.getElementById('attending-details');
     const guestMenuDetails = document.getElementById('guest-menu-details');
+    const dietaryRestrictionsTextarea = document.getElementById('dietary-restrictions');
 
     // --- Functions ---
+
+    /**
+     * Checks localStorage for a previously submitted name. If found,
+     * it replaces the form with a confirmation message.
+     * @returns {boolean} - True if an existing RSVP was found, false otherwise.
+     */
+    function checkExistingRsvp() {
+        const submittedName = localStorage.getItem('rsvpSubmittedName');
+        if (submittedName) {
+            const messageHtml = `
+                <div class="text-center py-16">
+                    <h2 class="text-3xl serif-font text-[#6c584c] mb-4">Thank You!</h2>
+                    <p class="text-gray-700 text-lg">It looks like you've already RSVP'd with the name: <strong>${submittedName}</strong>.</p>
+                    <p class="text-gray-600 mt-2">If you need to make changes to your submission, please contact us directly.</p>
+                </div>
+            `;
+            if (formContainer) {
+                formContainer.innerHTML = messageHtml;
+            }
+            return true;
+        }
+        return false;
+    }
+
     function showSuccessMessage() {
         const attendance = attendingSelect.value;
+        const name = nameInput.value;
         let messageHtml;
+
+        // Save the submitted name to localStorage to prevent future submissions
+        if (name) {
+            localStorage.setItem('rsvpSubmittedName', name.trim());
+        }
+
         if (attendance === 'No') {
             messageHtml = `
                 <div class="text-center py-16">
@@ -91,9 +125,8 @@ document.addEventListener('DOMContentLoaded', () => {
         const mainDishSelected = document.querySelectorAll('#main-dish-selection-inputs input').length > 0;
         const beverageSelected = document.querySelectorAll('#beverage-selection-inputs input').length > 0;
 
-
         if (!appetizerSelected || !mainDishSelected || !beverageSelected) {
-            alert("Please select an appetizer and a main dish, and a beverage for yourself.");
+            alert("Please select an appetizer, a main dish, and a beverage for yourself.");
             return false;
         }
 
@@ -103,7 +136,7 @@ document.addEventListener('DOMContentLoaded', () => {
             const guestMainDishSelected = document.querySelectorAll('#guest-main-dish-selection-inputs input').length > 0;
             const guestBeverageSelected = document.querySelectorAll('#guest-beverage-selection-inputs input').length > 0;
             if (!guestAppetizerSelected || !guestMainDishSelected || !guestBeverageSelected) {
-                alert("Please select an appetizer and a main dish, and a beverage for your guest.");
+                alert("Please select an appetizer, a main dish, and a beverage for your guest.");
                 return false;
             }
         }
@@ -156,7 +189,36 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     }
 
+    function setupAccordion() {
+        const sections = document.querySelectorAll('.collapsible-section');
+
+        sections.forEach(section => {
+            const header = section.querySelector('.collapsible-header');
+            const content = section.querySelector('.collapsible-content');
+
+            header.addEventListener('click', () => {
+                const isActive = header.classList.contains('active');
+
+                // Close all other sections
+                sections.forEach(s => {
+                    s.querySelector('.collapsible-header').classList.remove('active');
+                    s.querySelector('.collapsible-content').style.maxHeight = null;
+                });
+
+                // If the clicked section was not already active, open it
+                if (!isActive) {
+                    header.classList.add('active');
+                    content.style.maxHeight = content.scrollHeight + "px";
+                }
+            });
+        });
+    }
+
     // --- Event Listeners and Initial Setup ---
+
+    if (checkExistingRsvp()) {
+        return;
+    }
 
     // Populate all menus from data arrays
     populateMenu('appetizer-options', appetizerData, 'food');
@@ -173,6 +235,11 @@ document.addEventListener('DOMContentLoaded', () => {
     setupMenuSelection('guest-appetizer-options', 'guest-appetizer-selection-inputs', 'entry.898720481');
     setupMenuSelection('guest-main-dish-options', 'guest-main-dish-selection-inputs', 'entry.421453520');
     setupMenuSelection('guest-beverage-options', 'guest-beverage-selection-inputs', 'entry.1484470508');
+
+    // Dynamically set the name attribute for the dietary restrictions field
+    if (dietaryRestrictionsTextarea) {
+        dietaryRestrictionsTextarea.name = 'entry.1215235579';
+    }
 
     // Handle form submission
     if (rsvpForm) {
@@ -202,6 +269,10 @@ document.addEventListener('DOMContentLoaded', () => {
             } else {
                 attendingDetails.style.display = 'none';
                 guestMenuDetails.style.display = 'none';
+                // Clear dietary restrictions if they are no longer attending
+                if (dietaryRestrictionsTextarea) {
+                    dietaryRestrictionsTextarea.value = '';
+                }
             }
         });
     }
@@ -219,4 +290,7 @@ document.addEventListener('DOMContentLoaded', () => {
             }
         });
     }
+
+    // Initialize the accordion functionality
+    setupAccordion();
 });

@@ -20,7 +20,8 @@
     <script src="https://cdn.tailwindcss.com"></script>
 
     <!-- External Stylesheets -->
-    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@300;400;500;600;700&family=Charm&family=Fahkwang&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@300;400;500;600;700&family=Montserrat:wght@100;200;300;400;500;600&family=Nunito:wght@400;700&display=swap"
+          rel="stylesheet">
     <link rel="stylesheet" href="assets/css/rsvp.css">
 </head>
 <body class="py-12 px-4 bg-[#fbf8ec]">
@@ -42,7 +43,7 @@
 
             <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
                 <div>
-                    <label for="name" class="block text-sm font-medium text-gray-700 mb-1">Name*</label>
+                    <label for="name" class="block text-xl font-semibold text-[#6c584c] mb-2 serif-font">Name<span class="text-red-600 ml-1">*</span></label>
                     <input id="name" name="entry.2092238618" type="text" required
                            class="w-full px-4 py-2 border border-gray-300 rounded-md shadow-sm focus:ring-[#6c584c] focus:border-[#6c584c]"
                            placeholder="Your Full Name">
@@ -50,8 +51,8 @@
             </div>
 
             <div>
-                <label for="is-attending" class="block text-sm font-medium text-gray-700 mb-1">Will you be
-                    attending?*</label>
+                <label for="is-attending" class="block text-xl font-semibold text-[#6c584c] mb-2 serif-font">Will you be
+                    attending?<span class="text-red-600 ml-1">*</span></label>
                 <select id="is-attending" name="entry.479301265" required
                         class="w-full px-4 py-2 border border-gray-300 rounded-md shadow-sm focus:ring-[#6c584c] focus:border-[#6c584c]">
                     <option value="">-- We'd love to know ---</option>
@@ -62,8 +63,8 @@
 
             <!-- This container holds all fields that appear after selecting "Yes" -->
             <div id="attending-details" class="space-y-6" style="display: none;">
-                <div id="guest-count-section">
-                    <label for="guest-count" class="block text-sm font-medium text-gray-700 mb-1">Number of Additional
+                <div>
+                    <label for="guest-count" class="block text-xl font-semibold text-[#6c584c] mb-2 serif-font">Number of Additional
                         Guests</label>
                     <select id="guest-count" name="entry.1753222212"
                             class="w-full px-4 py-2 border border-gray-300 rounded-md shadow-sm focus:ring-[#6c584c] focus:border-[#6c584c]">
@@ -74,28 +75,47 @@
 
                 <!-- Main Person's Menu -->
                 <div class="border-t border-gray-200 pt-6">
-                    <h3 class="text-xl serif-font text-[#6c584c] mb-4">Your Menu Selection</h3>
-                    <div id="appetizer-section-container">
-                        <label class="block text-sm font-medium text-gray-700 mb-1">Appetizer Selection*</label>
-                        <div id="appetizer-selection-inputs"></div>
-                        <div class="mt-2 grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 gap-4"
-                             id="appetizer-options">
+                    <label class="block text-xl font-semibold text-[#6c584c] mb-4 serif-font">Your Menu Selection</label>
+                    <div class="space-y-2">
+                        <!-- Appetizer Dropdown -->
+                        <div class="collapsible-section">
+                            <div class="collapsible-header flex justify-between items-center cursor-pointer p-3 bg-gray-50 hover:bg-gray-100 rounded-md border transition-colors">
+                                <span class="font-medium text-gray-700">Appetizer Selection<span class="text-red-600 ml-1">*</span></span>
+                                <svg class="collapsible-icon w-5 h-5 text-gray-500 transition-transform" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" d="m19.5 8.25-7.5 7.5-7.5-7.5" /></svg>
+                            </div>
+                            <div class="collapsible-content">
+                                <div id="appetizer-selection-inputs"></div>
+                                <div class="p-4 border border-t-0 rounded-b-md bg-white">
+                                    <div class="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 gap-4" id="appetizer-options"></div>
+                                </div>
+                            </div>
                         </div>
-                    </div>
-                    <br>
-                    <div id="main-dish-section-container">
-                        <label class="block text-sm font-medium text-gray-700 mb-1">Main Dish Selection*</label>
-                        <div id="main-dish-selection-inputs"></div>
-                        <div class="mt-2 grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 gap-4"
-                             id="main-dish-options">
+                        <!-- Main Dish Dropdown -->
+                        <div class="collapsible-section">
+                            <div class="collapsible-header flex justify-between items-center cursor-pointer p-3 bg-gray-50 hover:bg-gray-100 rounded-md border transition-colors">
+                                <span class="font-medium text-gray-700">Main Dish Selection<span class="text-red-600 ml-1">*</span></span>
+                                <svg class="collapsible-icon w-5 h-5 text-gray-500 transition-transform" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" d="m19.5 8.25-7.5 7.5-7.5-7.5" /></svg>
+                            </div>
+                            <div class="collapsible-content">
+                                <div id="main-dish-selection-inputs"></div>
+                                <div class="p-4 border border-t-0 rounded-b-md bg-white">
+                                    <div class="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 gap-4" id="main-dish-options"></div>
+                                </div>
+                            </div>
                         </div>
-                    </div>
-                    <br>
-                    <div id="beverage-section-container">
-                        <label class="block text-sm font-medium text-gray-700 mb-1">Beverage Selection*</label>
-                        <div id="beverage-selection-inputs"></div>
-                        <div class="mt-2 grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 gap-4"
-                             id="beverage-options">
+                        <!-- Beverage Dropdown -->
+                        <div class="collapsible-section">
+                            <div class="collapsible-header flex justify-between items-center cursor-pointer p-3 bg-gray-50 hover:bg-gray-100 rounded-md border transition-colors">
+                                <span class="font-medium text-gray-700">Beverage Selection<span class="text-red-600 ml-1">*</span></span>
+                                <svg class="collapsible-icon w-5 h-5 text-gray-500 transition-transform" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" d="m19.5 8.25-7.5 7.5-7.5-7.5" /></svg>
+                            </div>
+                            <div class="collapsible-content">
+                                <div id="beverage-selection-inputs"></div>
+                                <div class="p-4 border border-t-0 rounded-b-md bg-white">
+                                    <p class="text-sm text-gray-500 mb-4 text-center italic">Water will be provided for all guests.</p>
+                                    <div class="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 gap-4" id="beverage-options"></div>
+                                </div>
+                            </div>
                         </div>
                     </div>
                 </div>
@@ -103,35 +123,66 @@
                 <!-- Guest's Menu (conditionally shown) -->
                 <div id="guest-menu-details" style="display: none;">
                     <div class="border-t border-gray-200 pt-6 mt-6">
-                        <h3 class="text-xl serif-font text-[#6c584c] mb-4">Your Guest's Menu Selection</h3>
-                        <div id="guest-appetizer-section-container">
-                            <label class="block text-sm font-medium text-gray-700 mb-1">Guest's Appetizer
-                                Selection*</label>
-                            <div id="guest-appetizer-selection-inputs"></div>
-                            <div class="mt-2 grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 gap-4"
-                                 id="guest-appetizer-options">
+                        <label class="block text-xl font-semibold text-[#6c584c] mb-4 serif-font">Your Guest's Menu Selection</label>
+                        <div class="space-y-2">
+                            <!-- Guest Appetizer Dropdown -->
+                            <div class="collapsible-section">
+                                <div class="collapsible-header flex justify-between items-center cursor-pointer p-3 bg-gray-50 hover:bg-gray-100 rounded-md border transition-colors">
+                                    <span class="font-medium text-gray-700">Guest's Appetizer Selection<span class="text-red-600 ml-1">*</span></span>
+                                    <svg class="collapsible-icon w-5 h-5 text-gray-500 transition-transform" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" d="m19.5 8.25-7.5 7.5-7.5-7.5" /></svg>
+                                </div>
+                                <div class="collapsible-content">
+                                    <div id="guest-appetizer-selection-inputs"></div>
+                                    <div class="p-4 border border-t-0 rounded-b-md bg-white">
+                                        <div class="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 gap-4" id="guest-appetizer-options"></div>
+                                    </div>
+                                </div>
                             </div>
-                        </div>
-                        <br>
-                        <div id="guest-main-dish-section-container">
-                            <label class="block text-sm font-medium text-gray-700 mb-1">Guest's Main Dish
-                                Selection*</label>
-                            <div id="guest-main-dish-selection-inputs"></div>
-                            <div class="mt-2 grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 gap-4"
-                                 id="guest-main-dish-options">
+                            <!-- Guest Main Dish Dropdown -->
+                            <div class="collapsible-section">
+                                <div class="collapsible-header flex justify-between items-center cursor-pointer p-3 bg-gray-50 hover:bg-gray-100 rounded-md border transition-colors">
+                                    <span class="font-medium text-gray-700">Guest's Main Dish Selection<span class="text-red-600 ml-1">*</span></span>
+                                    <svg class="collapsible-icon w-5 h-5 text-gray-500 transition-transform" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" d="m19.5 8.25-7.5 7.5-7.5-7.5" /></svg>
+                                </div>
+                                <div class="collapsible-content">
+                                    <div id="guest-main-dish-selection-inputs"></div>
+                                    <div class="p-4 border border-t-0 rounded-b-md bg-white">
+                                        <div class="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 gap-4" id="guest-main-dish-options"></div>
+                                    </div>
+                                </div>
                             </div>
-                        </div>
-                        <br>
-                         <div id="guest-beverage-section-container">
-                            <label class="block text-sm font-medium text-gray-700 mb-1">Guest's Beverage
-                                Selection*</label>
-                            <div id="guest-beverage-selection-inputs"></div>
-                            <div class="mt-2 grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 gap-4"
-                                 id="guest-beverage-options">
+                            <!-- Guest Beverage Dropdown -->
+                            <div class="collapsible-section">
+                                <div class="collapsible-header flex justify-between items-center cursor-pointer p-3 bg-gray-50 hover:bg-gray-100 rounded-md border transition-colors">
+                                    <span class="font-medium text-gray-700">Guest's Beverage Selection<span class="text-red-600 ml-1">*</span></span>
+                                    <svg class="collapsible-icon w-5 h-5 text-gray-500 transition-transform" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" d="m19.5 8.25-7.5 7.5-7.5-7.5" /></svg>
+                                </div>
+                                <div class="collapsible-content">
+                                    <div id="guest-beverage-selection-inputs"></div>
+                                    <div class="p-4 border border-t-0 rounded-b-md bg-white">
+                                        <p class="text-sm text-gray-500 mb-4 text-center italic">Water will be provided for all guests.</p>
+                                        <div class="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 gap-4" id="guest-beverage-options"></div>
+                                    </div>
+                                </div>
                             </div>
                         </div>
                     </div>
                 </div>
+
+                <!-- Dietary Restrictions -->
+                <div class="border-t border-gray-200 pt-6">
+                    <label for="dietary-restrictions" class="block text-xl font-semibold text-[#6c584c] mb-2 serif-font">
+                        Dietary Restrictions
+                    </label>
+                    <p class="text-sm text-gray-500 mb-2">Please let us know if you or your guest have any dietary needs we should be aware of.</p>
+                    <textarea
+                            id="dietary-restrictions"
+                            rows="4"
+                            class="w-full px-4 py-2 border border-gray-300 rounded-md shadow-sm focus:ring-[#6c584c] focus:border-[#6c584c]"
+                            placeholder="Vegetarian, Allergies, etc."
+                    ></textarea>
+                </div>
+
             </div>
 
             <div class="text-center pt-4">
