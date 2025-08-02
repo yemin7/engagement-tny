@@ -43,7 +43,6 @@ document.addEventListener('DOMContentLoaded', () => {
     // --- DOM Element References ---
     const formContainer = document.getElementById("form-container");
     const rsvpForm = document.getElementById('rsvp-form');
-    const nameInput = document.getElementById('name'); // <-- ADDED
     const hiddenIframe = document.getElementById('hidden_iframe');
     const attendingSelect = document.getElementById('is-attending');
     const guestCountSelect = document.getElementById('guest-count');
@@ -53,38 +52,9 @@ document.addEventListener('DOMContentLoaded', () => {
 
     // --- Functions ---
 
-    /**
-     * Checks localStorage for a previously submitted name. If found,
-     * it replaces the form with a confirmation message.
-     * @returns {boolean} - True if an existing RSVP was found, false otherwise.
-     */
-    function checkExistingRsvp() {
-        const submittedName = localStorage.getItem('rsvpSubmittedName');
-        if (submittedName) {
-            const messageHtml = `
-                <div class="text-center py-16">
-                    <h2 class="text-3xl serif-font text-[#6c584c] mb-4">Thank You!</h2>
-                    <p class="text-gray-700 text-lg">It looks like you've already RSVP'd with the name: <strong>${submittedName}</strong>.</p>
-                    <p class="text-gray-600 mt-2">If you need to make changes to your submission, please contact us directly.</p>
-                </div>
-            `;
-            if (formContainer) {
-                formContainer.innerHTML = messageHtml;
-            }
-            return true;
-        }
-        return false;
-    }
-
     function showSuccessMessage() {
         const attendance = attendingSelect.value;
-        const name = nameInput.value;
         let messageHtml;
-
-        // Save the submitted name to localStorage to prevent future submissions
-        if (name) {
-            localStorage.setItem('rsvpSubmittedName', name.trim());
-        }
 
         if (attendance === 'No') {
             messageHtml = `
@@ -150,7 +120,7 @@ document.addEventListener('DOMContentLoaded', () => {
         return `
             <div class="menu-option cursor-pointer border-2 border-gray-300 rounded-lg p-2 text-center transition-all hover:scale-105 hover:-translate-y-1 hover:shadow-xl" data-value="${item.value}">
                 <div class="relative rounded-md overflow-hidden">
-                    <img src="${item.img}" alt="${item.value}" class="${imageClasses}">
+                    <img src="${item.img}" alt="${item.value}" class="${imageClasses}" loading="lazy" decoding="async">
                     <span class="absolute bottom-0 left-0 right-0 p-1 bg-black/50 text-white text-xs font-medium text-center">${item.value}</span>
                 </div>
             </div>
@@ -215,10 +185,6 @@ document.addEventListener('DOMContentLoaded', () => {
     }
 
     // --- Event Listeners and Initial Setup ---
-
-    if (checkExistingRsvp()) {
-        return;
-    }
 
     // Populate all menus from data arrays
     populateMenu('appetizer-options', appetizerData, 'food');
