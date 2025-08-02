@@ -22,7 +22,7 @@ document.addEventListener('DOMContentLoaded', () => {
         {value: "Chicken Miso Butter", img: "assets/images/main-dish/chicken-miso-butter.png"},
         {value: "Creamy Carbonara Pasta", img: "assets/images/main-dish/creamy-carbonara-pasta.png"},
         {value: "Duck Confit Orange", img: "assets/images/main-dish/duck-confit-orange.png"},
-        {value: "Le Saumon Lava Roll", img: "assets/images/main-dish/le-saumon-lava-roll.png"},
+        {value: "Le Salmon Lava Roll", img: "assets/images/main-dish/le-salmon-lava-roll.png"},
         {value: "Teriyaki Tori Don", img: "assets/images/main-dish/teriyaki-tori-don.png"},
         {value: "Truffle Ravioli", img: "assets/images/main-dish/truffle-ravioli.png"},
         {value: "Wagyu Garlic Fried Rice", img: "assets/images/main-dish/wagyu-garlic-fried-rice.png"},
