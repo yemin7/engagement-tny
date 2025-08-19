@@ -5,7 +5,7 @@ document.addEventListener('DOMContentLoaded', () => {
     const appetizerData = [
         {value: "Balsamic Salad", img: "assets/images/appetizer/balsamic-salad.png"},
         {value: "Calamari Fries", img: "assets/images/appetizer/calamari-fries.png"},
-        {value: "Crispy Salmon Toro", img: "assets/images/appetizer/crispy-salmon-toro.png"},
+        {value: "Crispy Salmon Torso", img: "assets/images/appetizer/crispy-salmon-torso.png"},
         {value: "Garlic Butter Grilled Prawns", img: "assets/images/appetizer/garlic-butter-grilled-prawns.png"},
         {value: "Mega Crispy Corn", img: "assets/images/appetizer/mega-crispy-corn.png"},
         {value: "Salmon Ikura Bite", img: "assets/images/appetizer/salmon-ikura-bite.png"},
